@@ -2,6 +2,8 @@ import axios from 'axios';
 
 // Instantiate central Axios client reading from Vite environment configuration
 const rawBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+console.log('HireTrack API Base URL:', rawBaseUrl);
+
 const client = axios.create({
   baseURL: rawBaseUrl.replace(/\/+$/, ''),
   headers: {
