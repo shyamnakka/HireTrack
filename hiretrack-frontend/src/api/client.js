@@ -1,8 +1,9 @@
 import axios from 'axios';
 
 // Instantiate central Axios client reading from Vite environment configuration
+const rawBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 const client = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8001',
+  baseURL: rawBaseUrl.replace(/\/+$/, ''),
   headers: {
     'Content-Type': 'application/json',
   },
